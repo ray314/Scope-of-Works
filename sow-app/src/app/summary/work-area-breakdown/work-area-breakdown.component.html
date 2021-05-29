@@ -1,0 +1,83 @@
+<div class="container mt-3">
+  <h1>Work Breakdown Area</h1>
+
+  <div class="d-flex bd-highlight mb-2">
+    <button type="button" class="btn btn-primary float-left me-2" routerLink="/zones">Back</button>
+    <button type="button" class="btn btn-primary" (click)="addWorkArea()">Add work area</button>
+    <button type="button" class="btn btn-primary ms-2" routerLink="/summary"
+    [disabled]="!workAreas.valid">Project Summary</button>
+  </div>
+ 
+
+  <table class="table table-bordered table-striped text-center table-responsive">
+    <thead>
+      <tr>
+        <th>Work Area Name</th>
+        <th>Work Area Overview</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let area of workAreas.controls; index as i">
+
+        <td>
+          <div [formGroup]="area">
+            <input type="text" class="form-control" placeholder="Enter work area name" formControlName="name" required>
+            <div *ngIf="area.get('name').invalid && (area.get('name').dirty || area.get('name').touched)"
+              class="ng-invalid">
+              <div *ngIf="area.get('name').errors.required" style="color: red;">
+                Work area name is required.
+              </div>
+              <div *ngIf="area.get('name').errors.unique" style="color: red;">
+                Work area name must be unique.
+              </div>
+            </div>
+            <div *ngIf="area.get('zones').invalid" style="color: red;" class="ng-invalid">
+              No zones assigned to this work area.
+            </div>
+          </div>
+        </td>
+
+        <td [formGroup]="area"><input type="text" class="form-control" placeholder="Enter overview"
+            formControlName="overview"></td>
+
+        <td><button class="btn btn-danger" (click)="removeWorkArea(i)">Remove</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+  <!--Zone Sheet-->
+  <h2>Zone Sheet</h2>
+  <table class="table table-bordered table-striped text-center table-editable">
+    <thead>
+      <tr>
+        <th>Zone name</th>
+        <th>Include in work area</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!--Lists out the zones-->
+
+      <tr *ngFor="let zone of zones.controls;">
+        <td>{{ zone.get('name').value }}</td>
+        <td>
+          <!--Dropdown that assigns a zone to a work area-->
+          <select class="form-select" (change)="onZoneChange($event, selectArea.value, zone.get('name').value, zone.get('name'))"
+            (focus)="onZoneClick(selectArea.value, zone.get('name').value)" #selectArea>
+
+            <option hidden disabled [selected]="zone.get('workArea').value == 'None'" value="-1"> -- select an option --
+            </option>
+            <option [selected]="zone.get('workArea').value == area.get('name').value"
+              *ngFor="let area of workAreas.controls; index as i" value="{{ i }}">
+              {{ area.get('name').value }}
+            </option>
+          </select>
+          <div *ngIf="zone.get('workArea').invalid" class="ng-invalid" style="color: red;">
+            Work area not assigned to this zone.
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

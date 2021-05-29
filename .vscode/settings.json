@@ -1,0 +1,4 @@
+{
+    "typescript.tsdk": "./sow-app/node_modules/typescript/lib",
+    "editor.tabSize": 2
+}

@@ -1,0 +1,36 @@
+{
+  "name": "yourqs-nodejs-server",
+  "version": "1.0.0",
+  "description": "A server for YourQS SOW tool backend",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "tedious": "^9.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NickClementsNZ/Documentation.git"
+  },
+  "devDependencies": {
+    "del": "^5.1.0",
+    "fancy-log": "^1.3.3",
+    "gulp": "^4.0.2",
+    "gulp-zip": "^5.0.1",
+    "nodemon": "^2.0.2",
+    "webpack": "^4.42.1",
+    "webpack-stream": "^5.2.1"
+  },
+  "scripts": {
+    "start": "node server.bundle.js",
+    "build": "webpack",
+    "dev": "nodemon ./server.js localhost 3080",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "R&D Team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NickClementsNZ/Documentation/issues"
+  },
+  "homepage": "https://github.com/NickClementsNZ/Documentation/blob/master/readme.md"
+}

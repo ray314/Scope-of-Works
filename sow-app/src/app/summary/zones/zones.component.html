@@ -1,0 +1,61 @@
+<div class="container mt-3">
+	<h1>Project Zones</h1>
+
+	<div class="d-flex p-2 bd-highlight">
+		<button type="button" class="btn btn-primary me-2" (click)="this.addNewZone()">Add zone</button>
+		<button type="button" class="btn btn-primary me-2" routerLink="/projectSettings">Back</button>
+	
+		<!--<button routerLink="/summary" type="button" class="btn btn-primary float-end ms-1">Project summary</button>-->
+		<button routerLink="/work-breakdown-area" type="button" [disabled]="!zonesManager.isZonesValid()"
+		class="btn btn-primary me-2">Work Breakdown Area</button>
+	</div>
+	
+	<table class="table table-bordered table-striped text-center">
+		<thead>
+			<tr>
+				<th *ngFor="let head of headElements" scope="col">{{head}} </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let zone of zones.controls; index as i">
+				<td>
+					<div [formGroup]="zone">
+						<input type="text" class="form-control" formControlName="name" placeholder="Enter zone name" required>
+						<div *ngIf="zone.get('name').invalid && (zone.get('name').dirty || zone.get('name').touched)" class="ng-invalid">
+							<div *ngIf="zone.get('name').errors?.required" style="color: red;">
+								Zone name is required.
+							</div>
+							
+							<div *ngIf="zone.get('name').errors?.unique" style="color: red;">
+								Zone name must be unique.
+							</div>
+						</div>
+						<div *ngIf="zone.get('description').invalid" style="color: red;" class="ng-invalid">
+							Description is required.
+						</div>
+					</div>
+				</td>
+
+				<td>
+					<span class="table-edit">
+						<button type="button" class="btn btn-primary my-0" (click)="edit(i)">Edit</button>
+					</span>
+				</td>
+
+				<td>
+					<span class="table-remove">
+						<button type="button" class="btn btn-danger my-0" (click)="remove(i)">Remove</button>
+					</span>
+				</td>
+
+        <td>
+          <label class="form-control">{{ zone.get('workArea').value }}</label>
+        </td>
+
+			</tr>
+			<tr>
+
+			</tr>
+		</tbody>
+	</table>
+</div>

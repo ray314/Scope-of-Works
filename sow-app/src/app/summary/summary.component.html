@@ -1,0 +1,267 @@
+<div class="container mt-3">
+
+  <h1>Project Summary</h1>
+  <hr>
+
+  <div class="d-flex bd-highlight p-2">
+    <button type="button" class="btn btn-primary me-2" routerLink="/work-breakdown-area">Back</button>
+    <button (click)="this.appService.onSubmit()" type="button" class="btn btn-primary me-2">Submit project</button>
+    <button (click)="pdfGenerate()" class="btn btn-primary me-2">Create Full PDF</button>
+    <button (click)="pdfGenerate(true)" class="btn btn-primary me-2">Create Client PDF</button>
+  </div>
+
+  <div class="accordion mt-2">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#businessDefaults"
+          aria-expanded="true" aria-controls="businessDefaults">
+          Business Defaults
+        </button>
+      </h2>
+      <div id="businessDefaults" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+        <div class="accordion-body">
+          <h3>Company Name: {{ businessDefaults.companyName }}</h3>
+          <h3>Your Name: {{ businessDefaults.yourName }}</h3>
+
+          <h2>People and Pricing</h2>
+          <h3>Markup: {{ businessDefaults.peoplePricing.markup }}</h3>
+          <h3>Admin Hours: {{ businessDefaults.peoplePricing.adminHours }}</h3>
+          <h3>Admin Rate ($/hr): {{ businessDefaults.peoplePricing.adminCPH }}</h3>
+          <h3>Supervision Hours: {{ businessDefaults.peoplePricing.supervisionHours }}</h3>
+          <h3>Supervision Rate ($/hr): {{ businessDefaults.peoplePricing.supervisionCPH }}</h3>
+          <h3>Project Management Hours: {{ businessDefaults.peoplePricing.projectMHours }}</h3>
+          <h3>Project Management Rate ($/hr): {{ businessDefaults.peoplePricing.projectMCPH }}
+          </h3>
+          <h3>Building Team Hours: {{ businessDefaults.peoplePricing.buildingTeamHours }}</h3>
+          <h3>Building Team Rate ($/hr): {{ businessDefaults.peoplePricing.buildingTCPH }}</h3>
+          <h3>Rates are: {{ businessDefaults.peoplePricing.ratesAre }}</h3>
+
+          <h3>Site Sign: {{ businessDefaults.siteSign }}</h3>
+
+          <h2>Sub Trades</h2>
+          <h3>Plasterboard labour by: {{ businessDefaults.subTrades.plasterboardLabourBy }}
+          </h3>
+          <h3>Plasterboard Ceiling Default: {{
+            businessDefaults.subTrades.plasterboardCeilingDefault }}</h3>
+          <h3>Insulation: {{ businessDefaults.subTrades.insulation }}</h3>
+          <h3>Ceiling battens: {{ businessDefaults.subTrades.ceilingBattens }}</h3>
+
+          <h2>Job rates</h2>
+          <h3>Plumber ($/hour): {{ businessDefaults.jobRates.plumber }}</h3>
+          <h3>Electrician ($/hour): {{ businessDefaults.jobRates.electrician }}</h3>
+          <h3>Painter ($/hour): {{ businessDefaults.jobRates.painter }}</h3>
+          <h3>Drainlayer ($/hour): {{ businessDefaults.jobRates.drainlayer }}</h3>
+          <h3>Roofer ($/hour): {{ businessDefaults.jobRates.roofer }}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#projectSettings" aria-expanded="false" aria-controls="projectSettings">
+          Project Settings
+        </button>
+      </h2>
+      <div id="projectSettings" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+        <div class="accordion-body">
+          <h3>Address: {{ projectSettings.address }}</h3>
+          <h3>Client: {{ projectSettings.client }}</h3>
+          <h3>Project Description: </h3>
+
+          <h2>People and Pricing</h2>
+          <h3>Number of carpenters: {{ projectSettings.peoplePricing.nCarpenters }}</h3>
+          <h3>Estimated project duration (weeks): {{
+            projectSettings.peoplePricing.eProjectDuration }}</h3>
+          <h3>Builders contingency: {{ projectSettings.peoplePricing.bContingency }}</h3>
+          <h3>Drainage contingency: {{ projectSettings.peoplePricing.dContingency }}</h3>
+          <h3>Plumbing contingency: {{ projectSettings.peoplePricing.pContingency }}</h3>
+          <h3>Electrical contingency: {{ projectSettings.peoplePricing.eContingency }}</h3>
+          <h3>Client contingency allowance: {{ projectSettings.peoplePricing.cContingency }}
+          </h3>
+
+          <h2>Site Arrangement</h2>
+          <h3>Site Access: {{ projectSettings.siteArrangement.siteAccess }}</h3>
+          <h3>Space for material storage: {{ projectSettings.siteArrangement.spaceStorage }}
+          </h3>
+          <h3>Scaffold access comment: {{ projectSettings.siteArrangement.scaffoldAComment }}
+          </h3>
+          <h3>Scaffold Wrapping: {{ projectSettings.siteArrangement.sWrapping }}</h3>
+          <h3>Living Arrangements: {{ projectSettings.siteArrangement.livingArrange }}</h3>
+          <h3>Allow additonal hours due to site: {{ projectSettings.siteArrangement.addHours }}
+          </h3>
+          <h3>Is Sea Spray Zone?: {{ projectSettings.siteArrangement.seasprayzone }}</h3>
+
+          <h2>Safety Requirements</h2>
+          <h3>Site Security Fencing: {{ projectSettings.safetyRequirements.siteSecurityFencing
+            }}</h3>
+          <h3>Fall In Protection: {{ projectSettings.safetyRequirements.fallInProtection }}
+          </h3>
+          <h3>Toilet Hire Required: {{ projectSettings.safetyRequirements.toiletHireRequired }}
+          </h3>
+          <h3>Vehicle Crossing Protection: {{
+            projectSettings.safetyRequirements.vehicleCrossingProtect }}</h3>
+
+          <h2>Allowances and Insurances</h2>
+          <h3>Contractors All Risk Fee: {{
+            projectSettings.allowancesInsurances.contractorsRiskFee }}</h3>
+          <h3>Building Guarantee Fee: {{
+            projectSettings.allowancesInsurances.buildingGuaranteeFee }}</h3>
+
+          <h2>Professional Services</h2>
+          <h3>Drawings: {{ projectSettings.professionalServices.drawings }}</h3>
+          <h3>Geotechnical: {{ projectSettings.professionalServices.geotechnical }}</h3>
+          <h3>Engineering: {{ projectSettings.professionalServices.engineering }}</h3>
+          <h3>Land Surveyor: {{ projectSettings.professionalServices.landSurveyor }}</h3>
+          <h3>Council Fees: {{ projectSettings.professionalServices.councilFees }}</h3>
+          <h3>Other: {{ projectSettings.professionalServices.other }}</h3>
+          <h3>Comment: {{ projectSettings.professionalServices.comment }}</h3>
+
+          <h2>Interior</h2>
+          <!--Table-->
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th> </th>
+                <th>Material</th>
+                <th>Style</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Doors:</td>
+                <td>{{ projectSettings.interior.material.doors }}</td>
+                <td>{{ projectSettings.interior.style.doors }}</td>
+              </tr>
+              <tr>
+                <td>Skirting:</td>
+                <td>{{ projectSettings.interior.material.skirting }}</td>
+                <td>{{ projectSettings.interior.style.skirting }}</td>
+              </tr>
+              <tr>
+                <td>Scotia:</td>
+                <td>{{ projectSettings.interior.material.scotia }}</td>
+                <td>{{ projectSettings.interior.style.scotia }}</td>
+              </tr>
+              <tr>
+                <td>Architrave:</td>
+                <td>{{ projectSettings.interior.material.architrave }}</td>
+                <td>{{ projectSettings.interior.style.architrave }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2>Exterior</h2>
+          <!--Table-->
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th> </th>
+                <th>Material</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Primary Cladding:</td>
+                <td>{{ projectSettings.exterior.material.primaryCladding }}</td>
+                <td>{{ projectSettings.exterior.type.primaryCladding }}</td>
+              </tr>
+              <tr>
+                <td>Secondary Cladding:</td>
+                <td>{{ projectSettings.exterior.material.secondaryCladding }}</td>
+                <td>{{ projectSettings.exterior.type.secondaryCladding }}</td>
+              </tr>
+              <tr>
+                <td>Joinery Type:</td>
+                <td>{{ projectSettings.exterior.material.joineryType }}</td>
+                <td>{{ projectSettings.exterior.type.joineryType }}</td>
+              </tr>
+              <tr>
+                <td>Roof:</td>
+                <td>{{ projectSettings.exterior.material.roof }}</td>
+                <td>{{ projectSettings.exterior.type.roof }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2>Other comments: </h2>
+          <p>{{projectSettings.otherComments}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#workArea"
+          aria-expanded="false" aria-controls="workArea">
+          Work Area Breakdown
+        </button>
+      </h2>
+      <div id="workArea" class="accordion-collapse collapse">
+        <div class="accordion-body">
+          <!--Each work area has zones-->
+          <div *ngFor="let area of workAreas; index as i">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  attr.data-bs-target="#area{{ i }}">
+                  {{ area.name }}
+                </button>
+              </h2>
+              <div id="area{{ i }}" class="accordion-body accordion-collapse collapse">
+                <h2>Overview:</h2>
+                <p>{{ area.overview }}</p>
+                <h2>Zones assigned:</h2>
+                <p *ngFor="let zone of area.zones">
+                  {{ zone }}
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#trades"
+          aria-expanded="false" aria-controls="trade">
+          Summary by trade
+        </button>
+      </h2>
+      <div id="trades" class="accordion-collapse collapse">
+        <div class="accordion-body">
+          <!--Each work area has zones-->
+          <div *ngFor="let zone of zones; index as i">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  attr.data-bs-target="#trade_{{ i }}">
+                  {{ zone.name }}
+                </button>
+              </h2>
+              <div id="trade_{{ i }}" class="accordion-body accordion-collapse collapse">
+                <!--Table of trades-->
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Trade</th>
+                      <th>Detail</th>
+                      <th>Allowance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let trade of zone.trades">
+                      <td>{{ trade.trade }}</td>
+                      <td>{{ trade.detail }}</td>
+                      <td>{{ trade.allowance }}</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

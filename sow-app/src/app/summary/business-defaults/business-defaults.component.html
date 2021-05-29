@@ -1,0 +1,226 @@
+<div class="container mt-3">
+
+	<div [formGroup]="project" appInvalidControlScroll>
+		<h1><span style="text-decoration: underline;">Project Name</span><span style="color: red;"> *</span>:</h1>
+		<input type="text" class="form-control" formControlName="name" required>
+		<div class="invalid-feedback">
+			Required
+		</div>
+	</div>
+
+	<hr>
+	<form [formGroup]="businessDefaults" class="pt-4 pl-4" appInvalidControlScroll>
+
+
+		<h1 style="text-decoration: underline;">Business Defaults</h1>
+		<div class="mb-3">
+			<label class="form-label">Company Name <span style="color: red;">*</span>:</label>
+			<input type="text" class="form-control" formControlName="companyName" required>
+			<div *ngIf="companyName.invalid && (companyName.dirty || companyName.touched)" class="ng-invalid">
+				<div *ngIf="companyName.errors.required" style="color: red;">
+					Company name is required.
+				</div>
+				<div *ngIf="companyName.errors.minlength" style="color: red;">
+					Name must be at least 4 characters long.
+				</div>
+			</div>
+		</div>
+
+		<div class="mb-3">
+			<label class="form-label">Your Name <span style="color: red;">*</span>:</label>
+			<input type="text" class="form-control" formControlName="yourName">
+			<div *ngIf="yourName.invalid && (yourName.dirty || yourName.touched)" class="ng-invalid">
+				<div *ngIf="yourName.errors.required" style="color: red;">
+					Your name is required.
+				</div>
+				<div *ngIf="yourName.errors.minlength" style="color: red;">
+					Name must be at least 4 characters long.
+				</div>
+			</div>
+		</div>
+
+		<h2 style="text-decoration: underline;">People and Pricing</h2>
+		<div formGroupName="peoplePricing">
+			<div class="mb-3">
+				<label class="form-label">Markup <span style="color: red;">*</span>:</label>
+				<input type="number" min="0" class="form-control" formControlName="markup" appfilternumber required>
+				<div class="invalid-feedback">
+					Required
+				</div>
+			</div>
+
+			<!--Create a table here for 2nc column; rates-->
+
+			<div class="mb-3">
+				<label class="form-label">Admin Hours <span style="color: red;">*</span>:</label>
+				<input type="number" min="0" class="form-control" formControlName="adminHours" appfilternumber required>
+				<div class="invalid-feedback">
+					Required
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Admin Rate ($/hr) <span style="color: red;">*</span>:</label>
+				<input type="number" min="0" class="form-control" formControlName="adminCPH" appfilternumber required>
+				<div class="invalid-feedback">
+					Required
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Supervision Hours <span style="color: red;">*</span>:</label>
+				<input type="number" min="0" class="form-control" formControlName="supervisionHours" appfilternumber required>
+				<div class="invalid-feedback">
+					Required
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Supervision Rate ($/hr) <span style="color: red;">*</span>:</label>
+				<input type="number" min="0" class="form-control" formControlName="supervisionCPH" appfilternumber required>
+				<div class="invalid-feedback">
+					Required
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Project Management Hours <span style="color: red;">*</span>:</label>
+				<input type="number" min="0" class="form-control" formControlName="projectMHours" appfilternumber required>
+				<div class="invalid-feedback">
+					Required
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Project Management Rate ($/hr) <span style="color: red;">*</span>:</label>
+				<input type="number" min="0" class="form-control" formControlName="projectMCPH" appfilternumber required>
+				<div class="invalid-feedback">
+					Required
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Building Team Hours <span style="color: red;">*</span>:</label>
+				<input type="number" min="0" class="form-control" formControlName="buildingTeamHours" appfilternumber required>
+				<div class="invalid-feedback">
+					Required
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Building Team Rate ($/hr) <span style="color: red;">*</span>:</label>
+				<input type="number" min="0" class="form-control" formControlName="buildingTCPH" appfilternumber required>
+				<div class="invalid-feedback">
+					Required
+				</div>
+			</div>
+
+			<label class="form-label">Rates are <span style="color: red;">*</span>:</label>
+			<select class="form-select m" formControlName="ratesAre" required>
+				<option value="yes" selected>Cost</option>
+				<option value="no">Chargeout</option>
+			</select>
+			<div class="invalid-feedback">
+				Required
+			</div>
+		</div>
+
+		<hr>
+		<label class="form-label">Site Sign:</label>
+		<select class="form-select mb-3" formControlName="siteSign">
+			<option value="yes">Yes</option>
+			<option value="no">No</option>
+		</select>
+
+		<h2 style="text-decoration: underline;">Sub Trades</h2>
+		<div formGroupName="subTrades">
+			<div class="mb-3">
+				<label class="form-label">Plasterboard labour by:</label>
+				<select class="form-select" formControlName="plasterboardLabourBy">
+					<option value="Subcontract plastering only">
+						Subcontract plastering only
+					</option>
+
+					<option value="Subcontract install and plaster">
+						Subcontract install and plaster
+					</option>
+					<option value="Subcontract supply install and plaster">
+						Subcontract supply install and plaster
+					</option>
+				</select>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Plasterboard Ceiling Default:</label>
+				<select class="form-select" formControlName="plasterboardCeilingDefault">
+					<option value="As per drawings">
+						As per drawings
+					</option>
+					<option value="Standard 10mm">
+						Standard 10mm
+					</option>
+					<option value="Standard 13mm">
+						Standard 13mm
+					</option>
+					<option value="Premium 13mm">
+						Premium 13mm
+					</option>
+				</select>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Insulation:</label>
+				<select class="form-select" formControlName="insulation">
+					<option value="Main contractor supply and install">
+						Main contractor supply and install
+					</option>
+					<option value="Subcontractor supply and install">
+						Subcontractor supply and install
+					</option>
+				</select>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Ceiling battens:</label>
+				<select class="form-select" formControlName="ceilingBattens">
+					<option value="By main contractor">
+						By main contractor
+					</option>
+					<option value="By plasterboard installer">
+						By plasterboard installer
+					</option>
+				</select>
+			</div>
+		</div>
+
+		<h2 style="text-decoration: underline;">Job rates</h2>
+
+		<div formGroupName="jobRates">
+			<div class="mb-3">
+				<label class="form-label">Plumber ($/hour):</label>
+				<input type="number" min="0" class="form-control" formControlName="plumber" appfilternumber>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Electrician ($/hour):</label>
+				<input type="number" min="0" class="form-control" formControlName="electrician" appfilternumber>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Painter ($/hour):</label>
+				<input type="number" min="0" class="form-control" formControlName="painter" appfilternumber>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Drainlayer ($/hour):</label>
+				<input type="number" min="0" class="form-control" formControlName="drainlayer" appfilternumber>
+			</div>
+
+			<div class="mb-3">
+				<label class="form-label">Roofer ($/hour):</label>
+				<input type="number" min="0" class="form-control" formControlName="roofer" appfilternumber>
+			</div>
+		</div>
+		<button type="submit" class="btn btn-primary float-right mb-3 w-25" (click)="onSubmit()">Next</button>
+	</form>
+</div>

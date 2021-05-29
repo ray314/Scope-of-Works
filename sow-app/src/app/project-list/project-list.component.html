@@ -1,0 +1,20 @@
+<div class="container mt-3">
+  <h1>Your existing projects</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <td>Project Name</td>
+        <td>Project Summary</td>
+      </tr>
+    </thead>
+    <tbody>
+  
+      <tr *ngFor="let project of projects; let id = index">
+        <td>
+          {{ project.projectName }}
+        </td>
+        <td><button type="button" class="btn btn-info" (click)="viewSummary(id)">View summary</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

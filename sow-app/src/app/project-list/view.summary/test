@@ -1,0 +1,240 @@
+<h1>Project Summary</h1>
+
+  <button type="button" class="btn btn-info" routerLink="/viewExistingProjects">Back to project list</button>
+
+  <!--<button (click)="pdfGenerate()" class="btn btn-info ms-3">Create Full PDF</button>
+  <button (click)="pdfGenerate(true)" class="btn btn-info ms-3">Create Client PDF</button>-->
+
+
+  <div class="accordion mt-5">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#businessDefaults"
+          aria-expanded="true" aria-controls="businessDefaults">
+          Business Defaults
+        </button>
+      </h2>
+      <div id="businessDefaults" class="accordion-collapse collapse show" aria-labelledby="headingOne">
+        <div class="accordion-body">
+          <h3>Company Name: {{ businessDefaults.companyName }}</h3>
+          <h3>Your Name: {{ businessDefaults.yourName }}</h3>
+
+          <h2>People and Pricing</h2>
+          <h3>Markup: {{ businessDefaults.peoplePricing }}</h3>
+          <h3>Admin Hours: {{ businessDefaults.controls['peoplePricing'].get('adminHours').value }}</h3>
+          <h3>Admin Rate ($/hr): {{ businessDefaults.controls['peoplePricing'].get('adminCPH').value }}</h3>
+          <h3>Supervision Hours: {{ businessDefaults.controls['peoplePricing'].get('supervisionHours').value }}</h3>
+          <h3>Supervision Rate ($/hr): {{ businessDefaults.controls['peoplePricing'].get('supervisionCPH').value }}</h3>
+          <h3>Project Management Hours: {{ businessDefaults.controls['peoplePricing'].get('projectMHours').value }}</h3>
+          <h3>Project Management Rate ($/hr): {{ businessDefaults.controls['peoplePricing'].get('projectMCPH').value }}
+          </h3>
+          <h3>Building Team Hours: {{ businessDefaults.controls['peoplePricing'].get('buildingTeamHours').value }}</h3>
+          <h3>Building Team Rate ($/hr): {{ businessDefaults.controls['peoplePricing'].get('buildingTCPH').value }}</h3>
+          <h3>Rates are: {{ businessDefaults.controls['peoplePricing'].get('ratesAre').value }}</h3>
+
+          <h3>Site Sign: {{ businessDefaults.controls['siteSign'].value }}</h3>
+
+          <h2>Sub Trades</h2>
+          <h3>Plasterboard labour by: {{ businessDefaults.controls['subTrades'].get('plasterboardLabourBy').value }}
+          </h3>
+          <h3>Plasterboard Ceiling Default: {{
+            businessDefaults.controls['subTrades'].get('plasterboardCeilingDefault').value }}</h3>
+          <h3>Insulation: {{ businessDefaults.controls['subTrades'].get('insulation').value }}</h3>
+          <h3>Ceiling battens: {{ businessDefaults.controls['subTrades'].get('ceilingBattens').value }}</h3>
+
+          <h2>Job rates</h2>
+          <h3>Plumber ($/hour): {{ businessDefaults.controls['jobRates'].get('plumber').value }}</h3>
+          <h3>Electrician ($/hour): {{ businessDefaults.controls['jobRates'].get('electrician').value }}</h3>
+          <h3>Painter ($/hour): {{ businessDefaults.controls['jobRates'].get('painter').value }}</h3>
+          <h3>Drainlayer ($/hour): {{ businessDefaults.controls['jobRates'].get('drainlayer').value }}</h3>
+          <h3>Roofer ($/hour): {{ businessDefaults.controls['jobRates'].get('roofer').value }}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+          data-bs-target="#projectSettings" aria-expanded="false" aria-controls="projectSettings">
+          Project Settings
+        </button>
+      </h2>
+      <div id="projectSettings" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+        <div class="accordion-body">
+          <h3>Address: {{ projectSettings.controls['address'].value }}</h3>
+          <h3>Client: {{ projectSettings.controls['client'].value }}</h3>
+          <h3>Project Description: </h3>
+
+          <h2>People and Pricing</h2>
+          <h3>Number of carpenters: {{ projectSettings.controls['peoplePricing'].get('nCarpenters').value }}</h3>
+          <h3>Estimated project duration (weeks): {{
+            projectSettings.controls['peoplePricing'].get('eProjectDuration').value }}</h3>
+          <h3>Builders contingency: {{ projectSettings.controls['peoplePricing'].get('bContingency').value }}</h3>
+          <h3>Drainage contingency: {{ projectSettings.controls['peoplePricing'].get('dContingency').value }}</h3>
+          <h3>Plumbing contingency: {{ projectSettings.controls['peoplePricing'].get('pContingency').value }}</h3>
+          <h3>Electrical contingency: {{ projectSettings.controls['peoplePricing'].get('eContingency').value }}</h3>
+          <h3>Client contingency allowance: {{ projectSettings.controls['peoplePricing'].get('cContingency').value }}
+          </h3>
+
+          <h2>Site Arrangement</h2>
+          <h3>Site Access: {{ projectSettings.controls['siteArrangement'].get('siteAccess').value }}</h3>
+          <h3>Space for material storage: {{ projectSettings.controls['siteArrangement'].get('spaceStorage').value }}
+          </h3>
+          <h3>Scaffold access comment: {{ projectSettings.controls['siteArrangement'].get('scaffoldAComment').value }}
+          </h3>
+          <h3>Scaffold Wrapping: {{ projectSettings.controls['siteArrangement'].get('sWrapping').value }}</h3>
+          <h3>Living Arrangements: {{ projectSettings.controls['siteArrangement'].get('livingArrange').value }}</h3>
+          <h3>Allow additonal hours due to site: {{ projectSettings.controls['siteArrangement'].get('addHours').value }}
+          </h3>
+          <h3>Is Sea Spray Zone?: {{ projectSettings.controls['siteArrangement'].get('seasprayzone').value }}</h3>
+
+          <h2>Safety Requirements</h2>
+          <h3>Site Security Fencing: {{ projectSettings.controls['safetyRequirements'].get('siteSecurityFencing').value
+            }}</h3>
+          <h3>Fall In Protection: {{ projectSettings.controls['safetyRequirements'].get('fallInProtection').value }}
+          </h3>
+          <h3>Toilet Hire Required: {{ projectSettings.controls['safetyRequirements'].get('toiletHireRequired').value }}
+          </h3>
+          <h3>Vehicle Crossing Protection: {{
+            projectSettings.controls['safetyRequirements'].get('vehicleCrossingProtect').value }}</h3>
+
+          <h2>Allowances and Insurances</h2>
+          <h3>Contractors All Risk Fee: {{
+            projectSettings.controls['allowancesInsurances'].get('contractorsRiskFee').value }}</h3>
+          <h3>Building Guarantee Fee: {{
+            projectSettings.controls['allowancesInsurances'].get('buildingGuaranteeFee').value }}</h3>
+
+          <h2>Professional Services</h2>
+          <h3>Drawings: {{ projectSettings.controls['professionalServices'].get('drawings').value }}</h3>
+          <h3>Geotechnical: {{ projectSettings.controls['professionalServices'].get('geotechnical').value }}</h3>
+          <h3>Engineering: {{ projectSettings.controls['professionalServices'].get('engineering').value }}</h3>
+          <h3>Land Surveyor: {{ projectSettings.controls['professionalServices'].get('landSurveyor').value }}</h3>
+          <h3>Council Fees: {{ projectSettings.controls['professionalServices'].get('councilFees').value }}</h3>
+          <h3>Other: {{ projectSettings.controls['professionalServices'].get('other').value }}</h3>
+          <h3>Comment: {{ projectSettings.controls['professionalServices'].get('comment').value }}</h3>
+
+          <h2>Interior</h2>
+          <!--Table-->
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th> </th>
+                <th>Material</th>
+                <th>Style</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Doors:</td>
+                <td>{{ projectSettings.controls['interior'].get('material').get('doors').value }}</td>
+                <td>{{ projectSettings.controls['interior'].get('style').get('doors').value }}</td>
+              </tr>
+              <tr>
+                <td>Skirting:</td>
+                <td>{{ projectSettings.controls['interior'].get('material').get('skirting').value }}</td>
+                <td>{{ projectSettings.controls['interior'].get('style').get('skirting').value }}</td>
+              </tr>
+              <tr>
+                <td>Scotia:</td>
+                <td>{{ projectSettings.controls['interior'].get('material').get('scotia').value }}</td>
+                <td>{{ projectSettings.controls['interior'].get('style').get('scotia').value }}</td>
+              </tr>
+              <tr>
+                <td>Architrave:</td>
+                <td>{{ projectSettings.controls['interior'].get('material').get('architrave').value }}</td>
+                <td>{{ projectSettings.controls['interior'].get('style').get('architrave').value }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2>Exterior</h2>
+          <!--Table-->
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th> </th>
+                <th>Material</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Primary Cladding:</td>
+                <td>{{ projectSettings.controls['exterior'].get('material').get('primaryCladding').value }}</td>
+                <td>{{ projectSettings.controls['exterior'].get('type').get('primaryCladding').value }}</td>
+              </tr>
+              <tr>
+                <td>Secondary Cladding:</td>
+                <td>{{ projectSettings.controls['exterior'].get('material').get('secondaryCladding').value }}</td>
+                <td>{{ projectSettings.controls['exterior'].get('type').get('secondaryCladding').value }}</td>
+              </tr>
+              <tr>
+                <td>Joinery Type:</td>
+                <td>{{ projectSettings.controls['exterior'].get('material').get('joineryType').value }}</td>
+                <td>{{ projectSettings.controls['exterior'].get('type').get('joineryType').value }}</td>
+              </tr>
+              <tr>
+                <td>Roof:</td>
+                <td>{{ projectSettings.controls['exterior'].get('material').get('roof').value }}</td>
+                <td>{{ projectSettings.controls['exterior'].get('type').get('roof').value }}</td>
+              </tr>
+            </tbody>
+          </table>
+          <h2>Other comments: </h2>
+          <p>{{projectSettings.controls['otherComments'].value}}</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFour">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#workArea"
+          aria-expanded="false" aria-controls="workArea">
+          Work Area Breakdown
+        </button>
+      </h2>
+      <div id="workArea" class="accordion-collapse collapse">
+        <div class="accordion-body">
+          <!--Each work area has zones-->
+          <div *ngFor="let area of workAreas.controls; index as i">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" attr.data-bs-target="#area{{ i }}">
+                  {{ area.get('name').value }}
+                </button>
+              </h2>
+
+              <!--Zones-->
+              <div id="area{{ i }}" class="accordion-collapse collapse">
+                <!--Work area overview-->
+                <div style="margin-left: 40%;">
+                  <strong>Work Area Overview: </strong> 
+                  {{ area.get('overview').value }}
+                </div>
+                <div *ngFor="let zone of area.get('zones').controls; index as j">
+                  <div class="accordion-item">
+                    
+
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        attr.data-bs-target="#zones{{ j }}_area{{ i }}">
+                        {{ zone.get('name').value }}
+                      </button>
+                    </h2>
+                    
+                    
+                    <div id="zones{{ j }}_area{{ i }}" class="accordion-collapse collapse">
+                      <div class="accordion-body" *ngFor="let detail of zone.get('details').controls">
+                        <strong>{{ detail.get('rowName').value }}:</strong><p> {{ detail.get('detail').value }}</p>
+                        
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

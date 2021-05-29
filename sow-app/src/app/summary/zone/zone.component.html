@@ -1,0 +1,43 @@
+<div class="container mt-3">
+	<h1>{{zone.controls['name'].value}}</h1>
+	<hr>
+	<button type="button" class="btn btn-primary me-2 mb-2" routerLink="/zones" [disabled]="zone.get('description').invalid">Back to Project Zones</button>
+	<button type="button" (click)="addTrade()" class="btn btn-primary mb-2">Add more
+		details</button>
+	<!--Convert this to dynamic table-->
+	<form [formGroup]="zone">
+
+		<div class="input-group mb-2">
+			<span class="input-group-text">Description<span style="color: red;"> *</span></span>
+			<input class="form-control" formControlName="description"
+			placeholder="Input description of the work in the zone" required>
+			<div class="invalid-feedback">
+				Required
+			</div>
+		</div>
+		<table class="table table-bordered" formArrayName="trades">
+			<thead>
+				<tr>
+					<th scope="col">Trade</th>
+					<th scope="col">Detail</th>
+					<th scope="col">Allowances</th>
+					<th scope="col">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let row of trades.controls; let i = index;" [formGroupName]="i">
+					<td>
+						<select class="form-select" required formControlName="trade">
+								<option *ngFor="let trade of tradePresets;" 
+								[value]="trade" [selected]="row.value == trade">{{ trade }}</option>
+						</select>
+					</td>
+					<td><textarea class="form-control" formControlName="detail" placeholder="Details"></textarea></td>
+					<td><textarea class="form-control" formControlName="allowance" placeholder="Allowance"></textarea></td>
+					<td><button type="button" class="btn btn-danger" (click)="removeTrade(i)" [disabled]="trades.controls.length < 2">Remove</button></td>
+				</tr>
+
+			</tbody>
+		</table>
+</form>
+</div>
