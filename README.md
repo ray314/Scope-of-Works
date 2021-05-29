@@ -1,5 +1,5 @@
 # Scope-of-Works
-My R&amp;D Project - 
+My R&amp;D project - 
 a web tool for YourQS that records scope of works for construction projects.
 
 <b>Home page</b>
