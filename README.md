@@ -1,6 +1,6 @@
 # Scope-of-Works
 My R&amp;D project - 
-a web tool for YourQS that records scope of works for construction projects.
+a web tool for YourQS (Quantity Surverying) that records scope of works for construction projects.
 
 <b>Home page</b>
 ![alt text](https://github.com/ray314/Scope-of-Works/blob/main/images/home%20page.png)
