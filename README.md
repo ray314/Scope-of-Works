@@ -2,6 +2,16 @@
 My R&amp;D project - 
 a web tool for quantity surverying that records scope of works for construction projects.
 
+<b>List of technologies used</b>
+* Angular
+* TypeScript
+* Javascript
+* Bootstrap 5
+* Git
+* NodeJS
+* Express.js
+* SQL Server
+
 <b>Home page</b>
 ![alt text](https://github.com/ray314/Scope-of-Works/blob/main/images/home%20page.png)
 User can select from a range of options e.g. Create new project
@@ -15,15 +25,15 @@ This form captures the way the client normally works
 These are the specifics that the user would like to apply to the project
 
 <b>Project Zones</b>
-![screencapture-localhost-sow-app-zones-2021-05-30-15_39_15](https://user-images.githubusercontent.com/12677108/120091344-645f8400-c15e-11eb-8fcf-8704f3e9afb1.png)
+![zones](https://user-images.githubusercontent.com/12677108/120096334-f4adc100-c17e-11eb-9c88-48c9de01e2b9.png)
 This is a list of zones. User can create one by adding new zone
 
 <b>Zone</b>
-![screencapture-localhost-sow-app-zone-0-2021-05-30-15_39_34](https://user-images.githubusercontent.com/12677108/120091358-89ec8d80-c15e-11eb-89c5-225c6e968dde.png)
+![zone](https://user-images.githubusercontent.com/12677108/120096339-fb3c3880-c17e-11eb-8469-a92d13e2e532.png)
 User can edit the details of this zone and the description
 
 <b>Work area breakdown</b>
-![screencapture-localhost-sow-app-work-breakdown-area-2021-05-30-15_40_13](https://user-images.githubusercontent.com/12677108/120091365-91139b80-c15e-11eb-8926-e0a488374c38.png)
+![work area breakdown](https://user-images.githubusercontent.com/12677108/120096345-02634680-c17f-11eb-8fb6-74eaffa80aae.png)
 User can create a work area, add an overview to the work area and assign a zone to it.
 
 <b>Summary page</b>
