@@ -9,17 +9,17 @@ port = 3080;
 const projects = [];
 
 var dbConfig = {
-  server: 'localhost',
+  server: '',
   authentication: {
     type: 'default',
     options: {
-      userName: 'studentaccess',
-      password: '@ccess1'
+      userName: '',
+      password: ''
     }
   },
   options: {
     encrypt: true,
-    database: 'Your QS project',
+    database: '',
     trustServerCertificate: true,
     validateBulkLoadParameters: true
   }
